@@ -1,3 +1,5 @@
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.annotations.Test;
 import pages.AccountPage;
 import pages.AddressBookPage;
@@ -9,6 +11,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.testng.Assert.assertTrue;
 
+@Epic("Address Feature")
+@Feature("Add Customer Address")
 public class AddAddressTest extends BaseTest {
 
     @Test
@@ -22,7 +26,7 @@ public class AddAddressTest extends BaseTest {
 
         addressBookPage.createNewAddress(customerAddress);
 
-        // Assertions
+
         assertAll(
                 () -> assertTrue(addressBookPage.isDisplayed(), "Element not found"),
                 () -> assertEquals(customerAddress.getPhoneNumber(), addressBookPage.createdPhoneNumber()),

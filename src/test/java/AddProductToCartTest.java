@@ -1,3 +1,7 @@
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import jdk.jfr.Description;
 import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.LogInPage;
@@ -7,10 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.testng.Assert.assertTrue;
 import static utils.Const.*;
 
-
+@Epic("Cart Feature")
+@Feature("Add Product to Cart")
 public class AddProductToCartTest extends BaseTest {
 
     @Test
+    @Story("Adding products to the shopping cart")
+    @Description("Test to verify adding products to the shopping cart")
     public void addProductToCartTest() {
         LogInPage signInPage = homePage.navigateToSignInPage();
         signInPage.loginToAccount(ConfigProperties.getProperty("login"), ConfigProperties.getProperty("password"));
